@@ -48,6 +48,11 @@ int main()
 		int* op = new int;
 		cin >> *op;
 
+		while (*op != 1 && *op != 2) {
+			cout << "Please input 1 or 2: ";
+			cin >> *op;
+		}
+
 		cout << "Enter a shift: ";
 		int* shift = new int;
 		cin >> *shift;
