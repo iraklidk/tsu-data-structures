@@ -37,7 +37,7 @@ bool staque::search(int value)
     return 0;
 }
 
-void staque::deleteValues(int deleteEven, int count)
+void staque::deleteValues(int count, int deleteEven)
 {
     if (deleteEven == 1 && odds < count) {
         cerr << "Not enough odd elements to delete" << endl;
@@ -47,7 +47,7 @@ void staque::deleteValues(int deleteEven, int count)
         cerr << "Not enough even elements to delete" << endl;
         return;
     }
-	if (count <= 0) {
+	if (count > odds + evens || deleteEven > 1 || deleteEven < -1) {
         cerr << "Invalid parameter to func" << endl;
         return;
     }

@@ -15,7 +15,7 @@ public:
 	bool search(int value);
 
 	// if deleteEven is 1 deletes 'count' odd elements, if deleteEven is 0 deletes 'count' even elements, if deleteEven is -1 delete 'count' element by default deleteEven is -1 and count is 1
-	void deleteValues(int deleteEven = -1, int count = 1);
+	void deleteValues(int count = 1, int deleteEven = -1);
 
 	// Adds an element in the staque
 	void add(int value);
