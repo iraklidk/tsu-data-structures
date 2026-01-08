@@ -59,15 +59,18 @@ int main()
     cout << "Current some staque " << some << endl;
 
     // Add 50 random numbers between 1 and 100
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 200; ++i) {
         int value = rand() % 100 + 1; // 1..100
         some.add(value);
     }
 
-	some.deleteValues(1, 20); // Delete 20 odd elements
-	cout << "Some staque after deleting 20 odd elements: " << some << endl;
+	cout << "Some staque after adding 200 random elements: " << some << endl;
 
+	some.deleteValues(20, 1); // Delete 20 odd elements
+	cout << "Some staque after deleting 20 odd elements: " << some << endl;
+	cout << "Size before delete 30 elem: " << some.size() << endl;
 	some.deleteValues(30); // Delete 30 elements by default
+	cout << "Size aftre delete 30 elem: " << some.size() << endl;
     cout << "Some staque after deleting 30 elements by default: " << some << endl;
 
 	return 0;

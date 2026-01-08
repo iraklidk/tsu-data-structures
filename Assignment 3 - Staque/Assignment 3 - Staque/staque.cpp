@@ -11,30 +11,15 @@ int staque::peek()
 
 bool staque::search(int value)
 {
-    if(!checkElementsByParity(value)) return 0;
-    int c = 0;
-    if (value & 1) {
-        Node* curr = head;
-        while (curr)
-        {
-            if (c == odds) return 0;
-            if (curr->value == value) return 1;
-            c++;
-            curr = curr->next;
-        }
-    }
-    else {
-        Node* curr = tail;
-        while (curr)
-        {
-            if (c == evens) return 0;
-            if (curr->value == value) return 1;
-            c++;
-            curr = curr->prev;
-        }
-    }
+    bool isOdd = (value & 1);
+    if (!checkElementsByParity(isOdd ? 1 : 0)) return false;
 
-    return 0;
+    Node* curr = isOdd ? head : tail;
+    while (curr) {
+        if (curr->value == value) return true;
+        curr = isOdd ? curr->next : curr->prev;
+    }
+    return false;
 }
 
 void staque::deleteValues(int count, int deleteEven)
@@ -137,8 +122,13 @@ void staque::deleteValues(int count, int deleteEven)
 }
 
 void staque::add(int value) {
+	// Check for duplicates
+	if (search(value)) {
+        cerr << "Value " << value <<" already exists in staque" << endl;
+        return;
+    }
+    
     Node* newNode = new Node(value);
-
     // If staque is empty
     if (odds == 0 && evens == 0) {
         head = tail = newNode;   // First element is both head and tail
@@ -150,13 +140,13 @@ void staque::add(int value) {
 
     if (value & 1) { // Odd: add to left
         newNode->next = head;  // Point to previous last odd
-        if (head) head->prev = newNode;
+        head->prev = newNode;
         head = newNode;
         odds++;
     }
     else { // even: add to right
         newNode->prev = tail;  // point to previous last even
-        if (tail) tail->next = newNode;
+        tail->next = newNode;
         tail = newNode;
         evens++;
     }
@@ -172,27 +162,14 @@ vector<int> staque::getElements(bool parity)
         return {};
     }
     
-    int c = 0;
     vector<int> res;
+    Node* curr = parity ? head : tail;
 
-	// If parity is true, return odd elements
-    if (parity) {
-        Node* curr = head;
-        while (c != odds) {
+    while (curr) {
+        if ((curr->value & 1) == parity) {
             res.push_back(curr->value);
-            c++;
-            curr = curr->next;
         }
-    }
-
-	// If parity is false, return even elements
-    else {
-        Node* curr = tail;
-        while (c != evens) {
-            res.push_back(curr->value);
-            c++;
-            curr = curr->prev;
-        }
+        curr = parity ? curr->next : curr->prev;
     }
 
     return res;

@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Assignment 5 - Red-Black Tree/Assignment 5 - Red-Black Tree.vcxproj" Id="8a6d334e-770e-41ce-bb6f-3bf9de22073e" />
+</Solution>
