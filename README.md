@@ -6,9 +6,9 @@ The course covers core concepts such as arrays, linked lists, stacks, queues, tr
 ## Assignments
 
 - `Assignment 1` – Enigma
-- `Assignment 1` – Slay Viber
-- `Assignment 1` – Enigma
-- `Assignment 1` – OOP + PQ
-- `Assignment 1` – Red-Black Tree
+- `Assignment 2` – Slay Viber
+- `Assignment 3` – Staque
+- `Assignment 4` – OOP + PQ
+- `Assignment 5` – Red-Black Tree
 
 Each folder contains the relevant C++ code for the assignments and exercises.
